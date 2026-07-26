@@ -1,11 +1,6 @@
 ---
 name: git-housekeeping
-description: >-
-  Clean up local git branches, detect stale branches, manage stashes, and lint
-  commit messages. Use when the user says 'cleanup branches', 'tidy git',
-  'remove merged branches', 'git housekeeping', 'stale branches', or wants to
-  clean up local git state. NOT for creating commits, force pushing, or
-  rewriting history.
+description: "Clean up local git branches, detect stale branches, manage stashes, and lint commit messages. Use when the user says 'cleanup branches', 'tidy git', 'remove merged branches', 'git housekeeping', 'stale branches', or wants to clean up local git state."
 license: MIT
 compatibility: opencode, claude-code, cursor, windsurf, copilot
 metadata:
