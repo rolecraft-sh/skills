@@ -1,6 +1,21 @@
-# rolecraft-sh/skills
+<p align="center">
+  <img src="https://github.com/rolecraft-sh/rolecraft/raw/main/assets/rolecraft_logo.png" width="120" height="120" alt="RoleCraft">
+</p>
 
-AI agent skills for engineering workflows. Installable via [rolecraft](https://github.com/rolecraft-sh/rolecraft).
+<h1 align="center">rolecraft-sh/skills</h1>
+
+<p align="center">
+  <a href="https://github.com/rolecraft-sh/rolecraft"><img src="https://img.shields.io/badge/powered%20by-rolecraft-2ea44f" alt="Powered by rolecraft"></a>
+  <a href="https://github.com/rolecraft-sh/skills/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT"></a>
+  <a href="https://github.com/rolecraft-sh/registry"><img src="https://img.shields.io/badge/registry-rolecraft--sh-blue" alt="Registry"></a>
+</p>
+
+<p align="center">
+  <b>Curated AI agent skills for engineering workflows.</b><br>
+  Part of the <a href="https://github.com/rolecraft-sh/rolecraft">RoleCraft</a> ecosystem — install with a single command.
+</p>
+
+---
 
 ## Skills by Category
 
