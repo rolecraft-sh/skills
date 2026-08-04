@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * Validates all skill directories have required SKILL.md structure.
- *
- * Checks:
- * - SKILL.md exists
- * - Frontmatter contains 'name' field
- * - Frontmatter contains 'description' field
- * - SKILL.md is not empty
- *
- * Exit code 1 if any validation fails.
- */
+  * Validates all skill directories have required SKILL.md structure.
+  *
+  * Checks:
+  * - SKILL.md exists
+  * - Frontmatter contains 'name' field
+  * - Frontmatter contains 'description' field
+  * - SKILL.md is not empty
+  *
+  * Exit code 1 if any validation fails.
+  */
 
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join, basename } from 'node:path'
@@ -23,12 +23,24 @@ function parseFrontmatter(content) {
 
   const yaml = match[1]
   const attrs = {}
+  let currentKey = null
 
   for (const line of yaml.split('\n')) {
     const keyMatch = line.match(/^(\w+):\s*(.*)$/)
+
     if (keyMatch) {
+      // New key found
+      currentKey = keyMatch[1]
       const val = keyMatch[2].trim()
-      attrs[keyMatch[1]] = val
+      attrs[currentKey] = val
+    } else if (currentKey && line.startsWith('  ')) {
+      // Continuation line (indented) — append to current value
+      const trimmed = line.trim()
+      if (trimmed && attrs[currentKey]) {
+        attrs[currentKey] += ' ' + trimmed
+      } else if (trimmed) {
+        attrs[currentKey] = trimmed
+      }
     }
   }
 
@@ -47,7 +59,7 @@ for (const entry of skillDirs) {
   checked++
 
   if (!existsSync(skillMd)) {
-    console.error(`❌ ${entry.name}/SKILL.md — file not found`)
+    console.error(`:x: ${entry.name}/SKILL.md — file not found`)
     errors++
     continue
   }
@@ -55,7 +67,7 @@ for (const entry of skillDirs) {
   const content = readFileSync(skillMd, 'utf-8')
 
   if (content.trim().length === 0) {
-    console.error(`❌ ${entry.name}/SKILL.md — file is empty`)
+    console.error(`:x: ${entry.name}/SKILL.md — file is empty`)
     errors++
     continue
   }
@@ -68,11 +80,11 @@ for (const entry of skillDirs) {
 
   if (missing.length > 0) {
     console.error(
-      `❌ ${entry.name}/SKILL.md — missing frontmatter fields: ${missing.join(', ')}`,
+        `:x: ${entry.name}/SKILL.md — mising frontmatter fields: ${missing.join(', ')}`,
     )
     errors++
   } else {
-    console.log(`✅ ${entry.name}`)
+    console.log(`:white_check_mark: ${entry.name}`)
   }
 }
 
