@@ -33,7 +33,7 @@ function parseFrontmatter(content) {
       currentKey = keyMatch[1]
       const val = keyMatch[2].trim()
       attrs[currentKey] = val
-    } else if (currentKey && line.startsWith('  ')) {
+    } else if (currentKey && line.match(/^\s{2}/)) {
       // Continuation line (indented) — append to current value
       const trimmed = line.trim()
       if (trimmed && attrs[currentKey]) {
