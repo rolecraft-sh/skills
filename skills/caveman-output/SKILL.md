@@ -1,6 +1,8 @@
 ---
 name: caveman-output
+slug: caveman-output
 description: "Compress AI responses to bare essentials — no greetings, praise, or fluff. Just code, facts, and bullet points. Use when the user says 'caveman mode', 'short answer', 'no fluff', 'just the code', 'TL;DR', 'brevity', or 'be concise'."
+author: rolecraft-sh
 license: MIT
 compatibility: opencode, claude-code, cursor, windsurf, copilot
 metadata:

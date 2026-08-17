@@ -2,6 +2,7 @@
 name: Flaky Test Detector
 slug: flaky-test-detector
 description: "Detect, analyze, and fix flaky tests across any test runner. Use when tests intermittently fail in CI, tests pass locally but fail on CI, tests fail non-deterministically, or need to stabilize a flaky test suite. Also for 'flaky test', 'flaky', 'intermittent failure', 'unstable test', 'test flakiness', 'test retry', 'CI flaky', 'non-deterministic test'."
+author: rolecraft-sh
 license: MIT
 compatibility: opencode, claude-code, cursor, windsurf, copilot
 metadata:

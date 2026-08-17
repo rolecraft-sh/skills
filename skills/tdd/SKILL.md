@@ -1,6 +1,9 @@
 ---
 name: tdd
+slug: tdd
 description: Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests.
+author: mattpocock
+license: MIT
 metadata:
   category: testing
 ---

@@ -1,6 +1,9 @@
 ---
 name: spec-driven-development
+slug: spec-driven-development
 description: Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.
+author: addyosmani
+license: MIT
 metadata:
   category: development
 ---
