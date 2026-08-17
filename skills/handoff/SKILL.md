@@ -1,6 +1,9 @@
 ---
 name: handoff
+slug: handoff
 description: Compact the current conversation into a handoff document for another agent to pick up.
+author: mattpocock
+license: MIT
 metadata:
   category: methodology
 argument-hint: "What will the next session be used for?"

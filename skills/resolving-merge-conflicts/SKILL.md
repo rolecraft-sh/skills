@@ -1,6 +1,9 @@
 ---
 name: resolving-merge-conflicts
+slug: resolving-merge-conflicts
 description: "Use when you need to resolve an in-progress git merge/rebase conflict."
+author: mattpocock
+license: MIT
 metadata:
   category: development
 ---

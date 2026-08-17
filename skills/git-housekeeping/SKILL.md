@@ -1,6 +1,8 @@
 ---
 name: git-housekeeping
+slug: git-housekeeping
 description: "Clean up local git branches, detect stale branches, manage stashes, and lint commit messages. Use when the user says 'cleanup branches', 'tidy git', 'remove merged branches', 'git housekeeping', 'stale branches', or wants to clean up local git state."
+author: rolecraft-sh
 license: MIT
 compatibility: opencode, claude-code, cursor, windsurf, copilot
 metadata:

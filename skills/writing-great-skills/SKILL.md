@@ -1,6 +1,9 @@
 ---
 name: writing-great-skills
+slug: writing-great-skills
 description: Reference for writing and editing skills well — the vocabulary and principles that make a skill predictable.
+author: mattpocock
+license: MIT
 metadata:
   category: content
 disable-model-invocation: true

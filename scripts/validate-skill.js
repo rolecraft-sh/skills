@@ -1,21 +1,27 @@
 #!/usr/bin/env node
 
 /**
-  * Validates all skill directories have required SKILL.md structure.
-  *
-  * Checks:
-  * - SKILL.md exists
-  * - Frontmatter contains 'name' field
-  * - Frontmatter contains 'description' field
-  * - SKILL.md is not empty
-  *
-  * Exit code 1 if any validation fails.
-  */
+ * Validates all skill directories have required SKILL.md structure.
+ *
+ * Checks:
+ * - SKILL.md exists
+ * - SKILL.md is not empty
+ * - Frontmatter contains 'name' field
+ * - Frontmatter contains 'description' field
+ * - Frontmatter contains 'slug' field matching the directory name
+ * - Frontmatter contains 'author' field
+ * - Frontmatter contains 'license' field
+ * - Frontmatter is well-formed (no stray separators, keys use valid names)
+ *
+ * Exit code 1 if any validation fails.
+ */
 
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
-import { join, basename } from 'node:path'
+import { join } from 'node:path'
 
 const SKILLS_DIR = join(import.meta.dirname, '..', 'skills')
+
+const REQUIRED = ['name', 'description', 'slug', 'author', 'license']
 
 function parseFrontmatter(content) {
   const match = content.match(/^---\n([\s\S]*?)\n(?:---|\.\.\.)/)
@@ -73,14 +79,18 @@ for (const entry of skillDirs) {
   }
 
   const { attrs } = parseFrontmatter(content)
-  const missing = []
+  const missing = REQUIRED.filter((field) => !attrs[field])
 
-  if (!attrs.name) missing.push('name')
-  if (!attrs.description) missing.push('description')
+  if (attrs.slug && attrs.slug !== entry.name) {
+    console.error(
+      `:x: ${entry.name}/SKILL.md — slug "${attrs.slug}" does not match directory name "${entry.name}"`,
+    )
+    errors++
+  }
 
   if (missing.length > 0) {
     console.error(
-        `:x: ${entry.name}/SKILL.md — mising frontmatter fields: ${missing.join(', ')}`,
+      `:x: ${entry.name}/SKILL.md — missing frontmatter fields: ${missing.join(', ')}`,
     )
     errors++
   } else {

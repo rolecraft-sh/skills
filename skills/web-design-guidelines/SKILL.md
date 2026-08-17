@@ -1,6 +1,9 @@
 ---
 name: web-design-guidelines
+slug: web-design-guidelines
 description: Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
+license: MIT
+author: vercel-labs
 metadata:
   author: vercel
   version: "1.0.0"
